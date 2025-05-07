@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcafc61b1b9750f4cbe631bcaf5a62a1, type: 3}
+  m_Name: ButtonSoundConfig
+  m_EditorClassIdentifier: 
+  pointerEnterAudioClip: {fileID: 8300000, guid: c7dddbe7f8566c5468c58a43a3acb641, type: 3}
+  pointerDownAudioClip: {fileID: 8300000, guid: 1c354f4a0aa8df54e914c27083b4a404, type: 3}
+  pointerUpAudioClip: {fileID: 8300000, guid: 73d8151e6d01f3c43a377d402cf88884, type: 3}
+  pointerExitAudioClip: {fileID: 8300000, guid: 21262894ec868f348a7b50bd1325cb24, type: 3}
