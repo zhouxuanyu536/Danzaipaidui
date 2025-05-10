@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameSoundConfig", menuName = "Audio/Game Sound Config")]
-public class GameSoundConfig : ScriptableObject
+public class GameSoundConfig : ScriptableObject 
 {
     public AudioClip Day1AudioClip;
     public AudioClip Day2AudioClip;

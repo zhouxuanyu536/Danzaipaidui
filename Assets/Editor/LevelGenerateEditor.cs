@@ -13,7 +13,7 @@ public class LevelGenerateEditor : EditorWindow
 
     private int selectedPrefabIndex = 0; //下拉框的索引
     private string[] prefabNames;
-    private readonly string SAVELEVELPATH = "Assets/Levels/";
+    private readonly string SAVELEVELPATH = "Assets/Resources/Prefabs/Levels/";
 
     private SerializedObject serializedObject;
     [SerializeField] private Vector3 GeneratePosition;
@@ -57,7 +57,7 @@ public class LevelGenerateEditor : EditorWindow
             player = EditorGUILayout.ObjectField("玩家", player, typeof(GameObject), true) as GameObject;
             if (GUILayout.Button("加载关卡"))
             {
-                LoadLevelPrefab(prefabNames[selectedPrefabIndex], player.transform);
+                LoadLevelPrefab(prefabNames[selectedPrefabIndex], player);
             }
         }
         else
@@ -102,13 +102,12 @@ public class LevelGenerateEditor : EditorWindow
     }
     private void LoadLevel()
     {
-        string path = "Assets/Levels";
-        if(Directory.Exists(path))
+        if(Directory.Exists(SAVELEVELPATH))
         {
             // 强制刷新 Unity 资源数据库
             AssetDatabase.Refresh();
 
-            string[] prefabPaths = Directory.GetFiles(path, "*.prefab", SearchOption.TopDirectoryOnly);
+            string[] prefabPaths = Directory.GetFiles(SAVELEVELPATH, "*.prefab", SearchOption.TopDirectoryOnly);
             prefabNames = prefabPaths.Select(p => Path.GetFileNameWithoutExtension(p)).ToArray();
         }
         else
@@ -141,7 +140,7 @@ public class LevelGenerateEditor : EditorWindow
         Debug.Log("Prefab创建成功：" + path);
     }
 
-    private void LoadLevelPrefab(string prefabName,Transform player = null)
+    private void LoadLevelPrefab(string prefabName,GameObject player = null)
     {
         string path = SAVELEVELPATH + prefabName + ".prefab";
         GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
@@ -150,8 +149,8 @@ public class LevelGenerateEditor : EditorWindow
             Instantiate(prefab,GeneratePosition,Quaternion.identity);
             if(player != null)
             {
-                player.position = GeneratePosition;
-                player.rotation = Quaternion.identity;
+                player.transform.position = GeneratePosition;
+                player.transform.rotation = Quaternion.identity;
             }
             Debug.Log("已加载关卡：" + prefabName);
         }

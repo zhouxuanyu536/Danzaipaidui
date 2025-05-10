@@ -112,8 +112,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _density: 20
-    - _move: 85862.47
-    - _rotation: -24.976147
+    - _move: 86071.07
+    - _rotation: -15
     - _width: 320
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
